@@ -19,12 +19,26 @@ app.get('/', (req,res) => {
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Access-Control-Allow-Origin', '*')
     var text = req.query.text;
-    var answer = charcount.counter(text);
 
-    output.string = 'Contains '+answer+ ' characters';
-    output.answer = answer;
+    if (text)
+    {
+        var answer = charcount.counter(text);
 
-    res.end(JSON.stringify(output));
+        output.string = 'Contains '+answer+ ' characters';
+        output.answer = answer;
+    
+        res.end(JSON.stringify(output));
+    }
+    else
+    {
+        output.error = true;
+        output.string = '';
+        output.answer = 0;
+
+        res.end(JSON.stringify(output));
+    }
+
+    
 });
 
 app.listen(PORT, HOST);
