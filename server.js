@@ -32,9 +32,8 @@ app.get('/', (req,res) => {
     else
     {
         output.error = true;
-        output.string = '';
+        output.string = '404';
         output.answer = 0;
-
         res.end(JSON.stringify(output));
     }
 
