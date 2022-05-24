@@ -1,2 +1,3 @@
-# editor-charcount
+# Cloud computing project
+editor-charcount
 
